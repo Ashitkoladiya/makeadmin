@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import MiniDrawer from "./admin/mui/Mui";
+import AddData from "./admin/addData/AddData";
+import RemoveData from "./admin/removeData/RemoveData";
+// import Header from "./container/header/header";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {/* <Header /> */}
+      {/* <MiniDrawer /> */}
+      <MiniDrawer>
+        <Routes>
+          {/* <Route path="/admin" element={<MiniDrawer />} /> */}
+          <Route path="/adddata" element={<AddData />} />
+          <Route path="/removedata" element={<RemoveData />} />
+        </Routes>
+      </MiniDrawer>
+    </>
   );
 }
 
