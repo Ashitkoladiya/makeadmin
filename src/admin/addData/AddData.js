@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 import { AddUser } from "../../Redux/slices/UserSlice";
+import MiniDrawer from "../mui/Mui";
 function AddData() {
   // const [AllData, setAllData] = useState([]);
   const UsersData = useSelector((state) => state.users);
@@ -41,61 +42,62 @@ function AddData() {
 
   return (
     <>
-      <div className="main_container">
-        <div className="inner_container">
-          <h1>Add Data</h1>
+      <MiniDrawer>
+        <div className="main_container">
+          <div className="inner_container">
+            <h1>Add Data</h1>
 
-          <form className="form" onSubmit={formik.handleSubmit}>
-            <input
-              placeholder="Enter Product Name"
-              type="text"
-              className="m-2 form-control"
-              name="productName"
-              onChange={formik.handleChange}
-              value={formik.values.productName}
-            />
-            <p style={{ color: "red" }}>
-              {formik.touched.productName ? formik.errors.productName : ""}
-            </p>
-            <input
-              placeholder="Enter Product Price"
-              className="m-2 form-control"
-              type="number"
-              name="productPrice"
-              onChange={formik.handleChange}
-              value={formik.values.productPrice}
-            />
-            <p style={{ color: "red" }}>
-              {formik.touched.productPrice ? formik.errors.productPrice : ""}
-            </p>
-            <Input
-              className="form-switch m-2"
-              placeholder="Choose Product Image"
-              type="file"
-              name="productImage"
-              onChange={(event) => {
-                formik.setFieldValue(
-                  "productImage",
-                  event.currentTarget.files[0]
-                );
-              }}
-              onBlur={formik.handleBlur}
-              error={
-                formik.touched.productImage &&
-                Boolean(formik.errors.productImage)
-              }
-            />
-            <p style={{ color: "red" }}>
-              {formik.touched.productImage ? formik.errors.productImage : ""}
-            </p>
-            <button className="btn btn-dark" type="submit">
-              Add Product
-            </button>
-          </form>
+            <form className="form" onSubmit={formik.handleSubmit}>
+              <input
+                placeholder="Enter Product Name"
+                type="text"
+                className="m-2 form-control"
+                name="productName"
+                onChange={formik.handleChange}
+                value={formik.values.productName}
+              />
+              <p style={{ color: "red" }}>
+                {formik.touched.productName ? formik.errors.productName : ""}
+              </p>
+              <input
+                placeholder="Enter Product Price"
+                className="m-2 form-control"
+                type="number"
+                name="productPrice"
+                onChange={formik.handleChange}
+                value={formik.values.productPrice}
+              />
+              <p style={{ color: "red" }}>
+                {formik.touched.productPrice ? formik.errors.productPrice : ""}
+              </p>
+              <Input
+                className="form-switch m-2"
+                placeholder="Choose Product Image"
+                type="file"
+                name="productImage"
+                onChange={(event) => {
+                  formik.setFieldValue(
+                    "productImage",
+                    event.currentTarget.files[0]
+                  );
+                }}
+                onBlur={formik.handleBlur}
+                error={
+                  formik.touched.productImage &&
+                  Boolean(formik.errors.productImage)
+                }
+              />
+              <p style={{ color: "red" }}>
+                {formik.touched.productImage ? formik.errors.productImage : ""}
+              </p>
+              <button className="btn btn-dark" type="submit">
+                Add Product
+              </button>
+            </form>
+          </div>
         </div>
-      </div>
 
-      {/* <div className="container">
+        {/* <div className="container">
         <div className="row">
           {UsersData.map((data) => {
             return (
@@ -119,6 +121,7 @@ function AddData() {
           })}
         </div>
       </div> */}
+      </MiniDrawer>
     </>
   );
 }
