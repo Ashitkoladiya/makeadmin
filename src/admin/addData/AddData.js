@@ -29,6 +29,7 @@ function AddData() {
       console.log("values from formik", values);
       const reader = new FileReader();
       reader.onload = (event) => {
+        
         const base64Image = event.target.result;
         // Dispatch action with the serialized data
         dispatch(AddUser({ ...values, productImage: base64Image }));
