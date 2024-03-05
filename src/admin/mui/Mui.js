@@ -18,11 +18,11 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
+import { IoPersonRemoveSharp } from "react-icons/io5";
+import { IoPersonAddSharp } from "react-icons/io5";
 import Header from "../../container/header/header";
 import { NavLink } from "react-router-dom";
+import { MdDashboardCustomize } from "react-icons/md";
 
 const drawerWidth = 240;
 
@@ -103,8 +103,9 @@ export default function MiniDrawer({ children }) {
     setOpen(false);
   };
   let listItem = [
-    { lable: "Add UserData", to: "adddata", icon: <AddIcon /> },
-    { lable: "Remove UserData", to: "removedata", icon: <RemoveIcon /> },
+    { lable: "Dash Board", to: "/admin", icon: <MdDashboardCustomize  /> },
+    { lable: "Add UserData", to: "/admin/adddata", icon: <IoPersonAddSharp /> },
+    { lable: "Remove UserData", to: "/admin/removedata", icon: <IoPersonRemoveSharp /> },
   ];
   return (
     <Box sx={{ display: "flex" }}>
@@ -163,7 +164,8 @@ export default function MiniDrawer({ children }) {
                     justifyContent: "center",
                   }}
                 >
-                  {index % 2 === 0 ? <AddIcon /> : <RemoveIcon />}
+                  {/* {index % 2 === 0 ? <IoPersonAddSharp /> : <IoPersonRemoveSharp />} */}
+                  {text.icon}
                 </ListItemIcon>
                 <ListItemText
                   primary={text.lable}
